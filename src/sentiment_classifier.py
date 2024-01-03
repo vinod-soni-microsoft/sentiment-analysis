@@ -5,7 +5,9 @@ load_dotenv()
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 while True:
-    user_input = input("Enter a phrase and we'll tell you if it's happy or sad.")
+    user_input = input("Enter a phrase and we'll tell you if it's happy or sad.\n")
+    if user_input == "exit" or user_input == "quit":
+        break
     response = openai.ChatCompletion.create(
         model="gpt-4",
         messages=[
